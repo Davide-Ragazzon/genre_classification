@@ -7,7 +7,7 @@ main:
     - check_data
     - segregate
     - random_forest
-  #  - evaluate
+    - evaluate
   # This seed will be used to seed the random number generator
   # to ensure repeatibility of the data splits and other
   # pseudo-random operations
