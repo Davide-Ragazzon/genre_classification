@@ -5,7 +5,7 @@ main:
     - download
     - preprocess
     - check_data
-  #  - segregate
+    - segregate
   #  - random_forest
   #  - evaluate
   # This seed will be used to seed the random number generator
