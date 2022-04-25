@@ -1,7 +1,7 @@
 import mlflow
 import os
 import hydra
-from omegaconf import DictConfig, OmegaConf
+from omegaconf import DictConfig, OmegaConf, ListConfig
 
 
 # This automatically reads in the configuration
@@ -20,7 +20,8 @@ def go(config: DictConfig):
         # This was passed on the command line as a comma-separated list of steps
         steps_to_execute = config["main"]["execute_steps"].split(",")
     else:
-        assert isinstance(config["main"]["execute_steps"], list)
+        assert isinstance(config["main"]["execute_steps"], list) or isinstance(
+            config["main"]["execute_steps"], ListConfig)
         steps_to_execute = config["main"]["execute_steps"]
 
     # Download step
@@ -39,17 +40,17 @@ def go(config: DictConfig):
 
     if "preprocess" in steps_to_execute:
 
-        ## YOUR CODE HERE: call the preprocess step
+        # YOUR CODE HERE: call the preprocess step
         pass
 
     if "check_data" in steps_to_execute:
 
-        ## YOUR CODE HERE: call the check_data step
+        # YOUR CODE HERE: call the check_data step
         pass
 
     if "segregate" in steps_to_execute:
 
-        ## YOUR CODE HERE: call the segregate step
+        # YOUR CODE HERE: call the segregate step
         pass
 
     if "random_forest" in steps_to_execute:
@@ -60,12 +61,12 @@ def go(config: DictConfig):
         with open(model_config, "w+") as fp:
             fp.write(OmegaConf.to_yaml(config["random_forest_pipeline"]))
 
-        ## YOUR CODE HERE: call the random_forest step
+        # YOUR CODE HERE: call the random_forest step
         pass
 
     if "evaluate" in steps_to_execute:
 
-        ## YOUR CODE HERE: call the evaluate step
+        # YOUR CODE HERE: call the evaluate step
         pass
 
 
