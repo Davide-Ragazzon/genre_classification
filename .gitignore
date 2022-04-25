@@ -1,6 +1,7 @@
 
 # Folders used for simulating the deployment
 /deployment_simulation/model/**
+/deployment_simulation/input_example_no_nan.json
 
 # General wandb / mlflow folders
 mlruns/
